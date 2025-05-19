@@ -41,7 +41,7 @@ Approach : I create a CTE MonthlyTransactions to count the number of transaction
             
             Average transactions per customer within each category (rounded to 2 decimals).
             
-Challenges: The Join was making the query slow, i assumed the owner_id and id in the customer table are the same.
+Challenges: The Join was making the query ambiguous, i assumed the owner_id and id in the customer table are the same.
 
 Assessment_Q3
 Approach: I had to  create a CTE LastTransactions that:
@@ -58,7 +58,7 @@ Approach: I had to  create a CTE LastTransactions that:
             
             Use DATEDIFF() to compute how long it’s been since the last transaction
 
-Challeges: I had ti settle for a  description based filtering after going through the data 
+Challeges: I had to settle for a  description based filtering after going through the data 
 
 Assessment_Q4
 Approach: I got user sign_up dates, I use date_joined to calculate account tenure in months
