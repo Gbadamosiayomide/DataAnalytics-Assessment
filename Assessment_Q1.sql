@@ -9,7 +9,7 @@ SELECT
         WHEN (PP.description LIKE '%Savings%') AND SA.confirmed_amount > 0 THEN SA.id 
         ELSE NULL END) AS savings_count,
   COUNT(DISTINCT CASE 
-        WHEN (PP.description LIKE '%Investment%' OR PP.description LIKE '%Mutual Fund%' OR PP.description LIKE '%Portfolio%') 
+        WHEN (PP.is_fixed_investment = 1 ) 
              AND SA.confirmed_amount > 0 THEN SA.id 
         ELSE NULL END) AS investment_count,
   SUM(CASE WHEN SA.confirmed_amount > 0 THEN SA.confirmed_amount ELSE 0 END) AS total_deposits
@@ -25,6 +25,7 @@ HAVING
   savings_count > 0 AND investment_count > 0
 ORDER BY 
   total_deposits DESC;
+
 
 
 
